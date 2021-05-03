@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick & Morty Characters</title>
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://kit.fontawesome.com/6c3a6c926b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" id="all">All</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#" id="all">All <span class="sr-only">(current)</span></a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Status
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item status" href="#" id="Alive">Alive</a>
+            <a class="dropdown-item status" href="#" id="Dead">Dead</a>
+            <a class="dropdown-item status" href="#" id="Unknow">Unknow</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Gender
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item gender" href="#" id="Female">Female</a>
+            <a class="dropdown-item gender" href="#" id="Male">Male</a>
+            <a class="dropdown-item gender" href="#" id="Genderless">Genderless</a>
+            <a class="dropdown-item gender" href="#" id="Unknow">Unknow</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" onsubmit="getCharacters('https://rickandmortyapi.com/api/character/?name='+search.value); span.innerHTML = search.value; return false;">
+        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" required>
+        <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  
+  <div class="container text-center">
+    
+    <h1 class="mb-3 text-white">Rick and Morty characters - <span id="spanT">All</span></h1>
+    <!-- <nav aria-label="Page navigation example">
+      <ul class="pagination pagination-lg justify-content-center">
+        <li class="page-item" id="btnPrev">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item" id="btnSig">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav> -->
+    <div id="characters">
+      <div id="btnP">
+        <div class="botones d-flex justify-content-center mt-10 mb-3">
+          <button class="btn btn-outline-warning my-2 my-sm-0" id="btnPrev">Prev</button>
+          <button class="btn btn-outline-warning my-2 my-sm-0" id="btnSig">Next</button>
+        </div>
+      </div>
+      
+      <div  class="d-flex justify-content-center">
+        <div style="display: none;" id="spinkit">
+          <div class="sk-chase  mt-10">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>  
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="row1 row mt-3 animate__animated animate__fadeIn animate__slow justify-content-center">
+                      
+      </div>
+    </div>
+    
+    <div style="display: none;" class="row mt-3 animate__animated animate__fadeIn animate__slow" id="single">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img style="width: 100%; height: 100%;" src="image/page-not-found.png" alt="..." id="sImg">
+            </div>
+            <div class="col-md-8">
+              <h5 class="card-header" id="sName">Card title</h5>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <h6>Status</h6>
+                        <p class="card-text" id="sStatus">qwe</p>
+                      </div>
+                      <div class="col-lg-6">
+                        <h6>Specie</h6>
+                        <p class="card-text" id="sSpecie">qwe</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <h6>Type</h6>
+                        <p class="card-text" id="sType">qwe</p>
+                      </div>
+                      <div class="col-lg-6">
+                        <h6>Gender</h6>
+                        <p class="card-text" id="sGender">qwe</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <h6>Origin</h6>
+                        <p class="card-text" id="sOrigin">qwe</p>
+                      </div>
+                      <div class="col-lg-6">
+                        <h6>Location</h6>
+                        <p class="card-text" id="sLocation">qwe</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button style="width: 100%;" class="btn btn-outline-warning" id="btnBack">Back</button>
+      </div>
+    </div>
+  </div>
+  <a class="ir-arriba"  javascript:void(0) title="Volver arriba">
+    <span class="fa-stack">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+    </span>
+  </a>
+        
+
+    
+
+  <script src="js/scriptChar.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="js/upButton.js"></script>
+</body>
+</html>
